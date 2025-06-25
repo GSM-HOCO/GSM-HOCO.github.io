@@ -3,24 +3,44 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
+  <title>GSM HOCO – Магазин электроники</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DanKertNet – Твоя связь</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-900 text-white">
-  <header class="p-4 bg-indigo-700 shadow-md">
-    <h1 class="text-3xl font-bold text-center">DanKertNet</h1>
-    <p class="text-center text-sm text-indigo-200">Интернет нового поколения</p>
+<body class="bg-white text-gray-800 font-sans">
+  <header class="bg-black text-white p-4">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <h1 class="text-xl font-bold">GSM HOCO</h1>
+      <nav class="space-x-4">
+        <a href="index.html">Главная</a>
+        <a href="catalog.html">Каталог</a>
+        <a href="contacts.html">Контакты</a>
+      </nav>
+    </div>
   </header>
 
-  <main class="p-8 text-center">
-    <h2 class="text-2xl mb-4">Скорость. Надёжность. Качество.</h2>
-    <p class="mb-6">Подключайся к лучшему провайдеру региона — без проволочек и с поддержкой 24/7</p>
-    <a href="#" class="px-6 py-3 bg-green-500 rounded-full hover:bg-green-600 transition">Подключиться</a>
-  </main>
+  <section class="bg-gray-100 py-12">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 class="text-3xl font-semibold mb-4">Добро пожаловать в GSM HOCO</h2>
+      <p class="text-lg text-gray-600">Аксессуары и техника с гарантией качества</p>
+    </div>
+  </section>
 
-  <footer class="p-4 text-center text-sm text-gray-400">
-    © 2025 DanKertNet. Сделано с 💻 и ☕️.
+  <section class="max-w-6xl mx-auto py-8 grid grid-cols-2 md:grid-cols-3 gap-6">
+    <!-- Товары (динамически через JS или вручную) -->
+    <div class="border rounded-lg overflow-hidden shadow hover:shadow-lg transition">
+      <img src="assets/images/powerbank.jpg" alt="PowerBank" class="w-full h-48 object-cover">
+      <div class="p-4">
+        <h3 class="text-lg font-semibold">PowerBank 20000mAh</h3>
+        <p class="text-green-600 font-bold mt-2">499 лей</p>
+        <a href="product.html" class="inline-block mt-4 px-4 py-2 bg-blue-600 text-white rounded">Подробнее</a>
+      </div>
+    </div>
+    <!-- Добавь больше товаров -->
+  </section>
+
+  <footer class="bg-black text-white text-center py-6">
+    © 2025 GSM HOCO – Все права защищены
   </footer>
 </body>
 </html>
