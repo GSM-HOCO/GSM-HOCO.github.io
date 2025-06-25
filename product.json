@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Hoco HC30 Bluetooth колонка",
+    "category": "акустика",
+    "price": 325,
+    "image": "img/hc30.jpg"
+  },
+  {
+    "name": "Hoco N28 Зарядка PD20W",
+    "category": "зарядки",
+    "price": 232,
+    "image": "img/n28.jpg"
+  },
+  {
+    "name": "Lenovo Tab M10 (3rd Gen)",
+    "category": "планшеты",
+    "price": 3500,
+    "image": "img/tabm10.jpg"
+  }
+]
