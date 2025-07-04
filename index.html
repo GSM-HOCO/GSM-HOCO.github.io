@@ -1,0 +1,417 @@
+<!DOCTYPE html><html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f5f7fa;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(90deg, #000000, #3a3a3a);
+      color: white;
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    .lang-toggle button {
+      background: white;
+      border: none;
+      margin: 0 4px;
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+    .lang-toggle button:hover {
+      background: #eeeeee;
+    }
+    nav {
+      background: #222;
+      padding: 0.8rem;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #1db954;
+    }
+    .hero {
+      padding: 2rem;
+      text-align: center;
+      background: white;
+    }
+    .hero h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+    .product {
+      background: white;
+      padding: 1.2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+    }
+    .product:hover {
+      transform: translateY(-5px);
+    }
+    .product h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .product p {
+      margin-bottom: 0.3rem;
+    }
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      font-size: 0.9rem;
+    }
+    footer a {
+      color: #1db954;
+      text-decoration: none;
+    }
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+    }
+    .phone-row {
+      display: flex;
+      overflow-x: auto;
+      gap: 16px;
+      padding-bottom: 16px;
+    }
+    .phone-card {
+      min-width: 180px;
+      background: #f8f8f8;
+      border-radius: 8px;
+      padding: 8px;
+      text-align: center;
+      box-shadow: 0 2px 8px #0001;
+    }
+    .phone-card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+    h2 {
+      margin: 24px 0 8px 0;
+      font-size: 1.5em;
+      color: #2a2a2a;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 id="title">Магазин GSM GSM</h1>
+    <div class="lang-toggle">
+      <button onclick="setLang('ru')">🇷🇺 Русский</button>
+      <button onclick="setLang('ro')">🇷🇴 Română</button>
+    </div>
+  </header>  <nav>
+    <a href="#products">Товары</a>
+    <a href="#map">Карта</a>
+    <a href="#contact">Контакты</a>
+  </nav>  <section class="hero">
+    <h2 id="hero-title">Добро пожаловать в магазин GSM HOCO в Кишиневе!</h2>
+    <p id="hero-desc">Лучшие аксессуары и техника по отличным ценам</p>
+  </section>  <div id="products"></div>
+  <section id="product-detail" style="display:none;"></section>
+  <section id="map">
+    <iframe  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2719.723186523423!2d28.8431603!3d47.019507!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40c97d007b17d379%3A0x1d457cb45abf535c!2sGSM%20HOCO!5e0!3m2!1sru!2s!4v1719400000000" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+  </section>  <footer id="contact">
+    <p>© 2025 GSM HOCO, Кишинев</p>
+    <p>
+      <a href="https://www.tiktok.com/@hocogsm" target="_blank">TikTok</a> |
+      <a href="https://maps.app.goo.gl/iaFWeVTShqrKZpnx9" target="_blank">Google Maps</a>
+    </p>
+  </footer>  <script src="products.js"></script>
+  <script>
+    const langContent = {
+      ru: {
+        title: "Магазин GSM HOCO",
+        heroTitle: "Добро пожаловать в магазин GSM HOCO в Кишиневе!",
+        heroDesc: "Лучшие аксессуары и техника по отличным ценам",
+        categories: {
+          Samsung: "Самсунг",
+          Redmi: "Редми",
+          Iphone: "Айфон",
+          Huawei: "Хуавей"
+        },
+        price: "Цена"
+      },
+      ro: {
+        title: "Magazin GSM HOCO",
+        heroTitle: "Bine ați venit la magazinul GSM HOCO din Chișinău!",
+        heroDesc: "Cele mai bune accesorii și tehnică la prețuri excelente",
+        categories: {
+          Samsung: "Samsung",
+          Redmi: "Redmi",
+          Iphone: "iPhone",
+          Huawei: "Huawei"
+        },
+        price: "Preț"
+      }
+    };
+    let currentLang = 'ru';
+    let currentProduct = null;
+    function renderProducts() {
+      const container = document.getElementById('products');
+      container.innerHTML = '';
+      document.getElementById('products').style.display = '';
+      document.getElementById('product-detail').style.display = 'none';
+      // Группируем по категориям
+      const grouped = {};
+      products.forEach(prod => {
+        if (!grouped[prod.category]) grouped[prod.category] = [];
+        grouped[prod.category].push(prod);
+      });
+      Object.keys(grouped).forEach(cat => {
+        const catDiv = document.createElement('div');
+        catDiv.className = 'category-block';
+        const catTitle = document.createElement('h2');
+        catTitle.innerText = langContent[currentLang].categories[cat] || cat;
+        catDiv.appendChild(catTitle);
+        const row = document.createElement('div');
+        row.className = 'phone-row';
+        grouped[cat].forEach(prod => {
+          const card = document.createElement('div');
+          card.className = 'phone-card';
+          card.tabIndex = 0;
+          card.setAttribute('role', 'button');
+          card.onclick = () => showProduct(prod);
+          // Фото
+          if (prod.images && prod.images.length) {
+            const img = document.createElement('img');
+            img.src = prod.images[0];
+            img.alt = prod.name[currentLang];
+            img.className = 'phone-img';
+            card.appendChild(img);
+          }
+          // Название
+          const name = document.createElement('div');
+          name.className = 'phone-name';
+          name.innerText = prod.name[currentLang];
+          card.appendChild(name);
+          // Цена
+          const price = document.createElement('div');
+          price.className = 'phone-price';
+          price.innerText = prod.price;
+          card.appendChild(price);
+          row.appendChild(card);
+        });
+        catDiv.appendChild(row);
+        container.appendChild(catDiv);
+      });
+    }
+    function showProduct(prod) {
+      currentProduct = prod;
+      document.getElementById('products').style.display = 'none';
+      const detail = document.getElementById('product-detail');
+      detail.style.display = '';
+      detail.innerHTML = '';
+      // Назад
+      const backBtn = document.createElement('button');
+      backBtn.innerText = currentLang === 'ru' ? 'Назад к телефонам' : 'Înapoi la telefoane';
+      backBtn.className = 'back-btn';
+      backBtn.onclick = () => { renderProducts(); window.scrollTo(0,0); };
+      detail.appendChild(backBtn);
+      // Название
+      const name = document.createElement('h2');
+      name.innerText = prod.name[currentLang];
+      detail.appendChild(name);
+      // Цена
+      const price = document.createElement('p');
+      price.className = 'price';
+      price.innerText = `${langContent[currentLang].price}: ${prod.price}`;
+      detail.appendChild(price);
+      // Фото (карусель)
+      if (prod.images && prod.images.length) {
+        const carousel = document.createElement('div');
+        carousel.className = 'carousel';
+        let currentImg = 0;
+        const img = document.createElement('img');
+        img.className = 'carousel-img';
+        img.src = prod.images[0];
+        img.alt = prod.name[currentLang];
+        carousel.appendChild(img);
+        if (prod.images.length > 1) {
+          const prev = document.createElement('span');
+          prev.className = 'carousel-arrow left';
+          prev.innerHTML = '&#8592;';
+          prev.onclick = () => {
+            currentImg = (currentImg - 1 + prod.images.length) % prod.images.length;
+            img.src = prod.images[currentImg];
+          };
+          const next = document.createElement('span');
+          next.className = 'carousel-arrow right';
+          next.innerHTML = '&#8594;';
+          next.onclick = () => {
+            currentImg = (currentImg + 1) % prod.images.length;
+            img.src = prod.images[currentImg];
+          };
+          carousel.appendChild(prev);
+          carousel.appendChild(next);
+        }
+        detail.appendChild(carousel);
+      }
+      // Описание
+      const desc = document.createElement('p');
+      desc.className = 'desc';
+      desc.innerText = prod.description[currentLang];
+      detail.appendChild(desc);
+    }
+    function setLang(lang) {
+      currentLang = lang;
+      document.getElementById('title').innerText = langContent[lang].title;
+      document.getElementById('hero-title').innerText = langContent[lang].heroTitle;
+      document.getElementById('hero-desc').innerText = langContent[lang].heroDesc;
+      if (currentProduct) showProduct(currentProduct);
+      else renderProducts();
+    }
+    // Стилизация
+    const style = document.createElement('style');
+    style.innerHTML = `
+      .category-block { margin-bottom: 2.5rem; }
+      .category-block h2 { font-size: 1.5rem; margin-bottom: 1rem; color: #1db954; }
+      .phone-row {
+        display: flex;
+        overflow-x: auto;
+        gap: 20px;
+        padding-bottom: 16px;
+        scrollbar-color: #1db954 #eee;
+        scrollbar-width: thin;
+      }
+      .phone-card {
+        min-width: 200px;
+        background: linear-gradient(135deg, #fff 60%, #e8f5e9 100%);
+        border-radius: 14px;
+        padding: 14px 10px 18px 10px;
+        text-align: center;
+        box-shadow: 0 2px 12px #0001;
+        transition: box-shadow 0.2s, transform 0.2s;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .phone-card:hover {
+        box-shadow: 0 6px 24px #1db95433;
+        transform: translateY(-4px) scale(1.03);
+      }
+      .phone-img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        background: #f0f0f0;
+        box-shadow: 0 2px 8px #0001;
+      }
+      .phone-name {
+        font-weight: 600;
+        font-size: 1.1em;
+        margin-bottom: 4px;
+        color: #222;
+      }
+      .phone-price {
+        color: #1db954;
+        font-weight: 600;
+        font-size: 1.05em;
+      }
+      #product-detail {
+        max-width: 600px;
+        margin: 2rem auto;
+        background: #fff;
+        border-radius: 18px;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+        padding: 2.5rem 2rem 2rem 2rem;
+        text-align: center;
+        animation: fadeIn 0.5s;
+      }
+      @keyframes fadeIn { from { opacity: 0; transform: translateY(30px);} to { opacity: 1; transform: none; } }
+      #product-detail h2 { font-size: 2rem; margin-bottom: 0.7rem; color: #1db954; }
+      #product-detail .price { font-size: 1.2rem; color: #222; margin-bottom: 1.2rem; }
+      #product-detail .desc { font-size: 1.08rem; color: #444; margin: 1.2rem 0 0.5rem 0; white-space: pre-line; }
+      .back-btn {
+        background: #1db954;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 8px 18px;
+        font-size: 1rem;
+        margin-bottom: 1.2rem;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .back-btn:hover { background: #14863c; }
+      .carousel {
+        position: relative;
+        margin: 0 auto 1.5rem auto;
+        width: 320px;
+        height: 240px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .carousel-img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border-radius: 12px;
+        box-shadow: 0 2px 12px #0002;
+        background: #f8f8f8;
+      }
+      .carousel-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 2.2rem;
+        color: #1db954;
+        background: #fff;
+        border-radius: 50%;
+        width: 38px;
+        height: 38px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 2px 8px #0001;
+        user-select: none;
+        z-index: 2;
+      }
+      .carousel-arrow.left { left: -18px; }
+      .carousel-arrow.right { right: -18px; }
+      @media (max-width: 700px) {
+        .carousel { width: 98vw; height: 38vw; min-height: 180px; max-width: 99vw; }
+        #product-detail { padding: 1.2rem 0.5rem; }
+      }
+    `;
+    document.head.appendChild(style);
+    window.addEventListener('DOMContentLoaded', () => {
+      renderProducts();
+    });
+  </script>
+</body>
+</html>
